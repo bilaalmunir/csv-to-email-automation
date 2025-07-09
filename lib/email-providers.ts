@@ -45,7 +45,7 @@ export const sendWithGmail = async (to: string, subject: string, body: string) =
     throw new Error('Gmail configuration missing');
   }
 
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: true,
     auth: {
@@ -74,7 +74,7 @@ export const sendWithSMTP = async (to: string, subject: string, body: string) =>
     throw new Error('SMTP configuration missing');
   }
 
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT || '587'),
     secure: process.env.SMTP_PORT === '465',

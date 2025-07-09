@@ -41,6 +41,8 @@ function isValidEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     const { emails, subject, body }: EmailRequest = await request.json();
